@@ -4081,6 +4081,9 @@ a .icon-flip-vertical:before {
 .icon-pencil:before {
   content: "\f040";
 }
+.icon-maximise:before {
+  content: "\f0b2";
+}
 .icon-map-marker:before {
   content: "\f041";
 }

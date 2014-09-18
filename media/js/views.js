@@ -276,7 +276,8 @@ var RoomView = Backbone.View.extend({
         'submit .edit-room form': 'submitEditRoom',
         'click .delete-room': 'deleteRoom',
         'click .show-edit-room': 'showEditRoom',
-        'click .hide-edit-room': 'hideEditRoom'
+        'click .hide-edit-room': 'hideEditRoom',
+        'click .maximise-room': 'maximiseRoom',
     },
     lastMessageOwner: false,
     lastMessageTime: false,
@@ -512,6 +513,12 @@ var RoomView = Backbone.View.extend({
     updateDescription: function(description) {
         this.$('.sidebar .meta .description').text(description);
         this.$('.edit-room textarea[name="description"]').val(description);
+    },
+    maximiseRoom: function() {
+        this.$('.sidebar').hide();
+        this.$('.entry').hide();
+        $('.navbar').hide();
+        $('.views').css('top', '0');
     }
 });
 
