@@ -515,10 +515,20 @@ var RoomView = Backbone.View.extend({
         this.$('.edit-room textarea[name="description"]').val(description);
     },
     maximiseRoom: function() {
+        var self = this;
         this.$('.sidebar').hide();
         this.$('.entry').hide();
         $('.navbar').hide();
         $('.views').css('top', '0');
+        $(document).on('keyup.normalise_room', function (e) {
+            if (e.keyCode == 27) {
+                self.$('.sidebar').show();
+                self.$('.entry').show();
+                $('.navbar').show();
+                $('.views').css('top', '');
+                $(document).unbind('keyup.normalise_room')
+            }
+        });
     }
 });
 
